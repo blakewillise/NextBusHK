@@ -7,8 +7,8 @@ import {CSSTransistion} from "react-transition-group"
 
 const MapWIthNoSSR = dynamic(()=>import ("../components/Map"),{ssr: false,});
 
-const Home = (props) => (
-  <CSSTransition in={true} appear={true} timeout={1200} classNames="fade">
-    <RouteProvider>
-      
-);
+const Home = (props) =>{
+   <CSSTransition in {true} appear={true} timeout={1200} className={fade}>
+<RouteProvider>
+
+}
