@@ -1,12 +1,14 @@
-import Link from 'next/link'
+import dynamic from "next/dynamic"
+import "../public/staic/sass/styles.scss";
+import searchBar from "../components/searchBar"
+import Tags from "../components/Tags"
+import {RouteProvider} from "../components/RouteContext"
+import {CSSTransistion} from "react-transition-group"
 
-export default function IndexPage() {
-  return (
-    <div>
-      Hello World.{' '}
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </div>
-  )
-}
+const MapWIthNoSSR = dynamic(()=>import ("../components/Map"),{ssr: false,});
+
+const Home = (props) => (
+  <CSSTransition in={true} appear={true} timeout={1200} classNames="fade">
+    <RouteProvider>
+      
+);
