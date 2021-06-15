@@ -1,5 +1,5 @@
 {
-  "name": "nextBus",
+  "name": "nextbushk",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
@@ -22,6 +22,6 @@
     "react-transition-group": "4.4.2"
   },
   "license": "MIT",
-  "keywords": []
-
+  "keywords": [],
+  "description": ""
 }
