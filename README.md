@@ -1,21 +1,49 @@
-# Hello World example
+# Better Bus
+I live in Washington DC, where the Bus System is pretty robust. I have 5+ bus stops literally within eye distance of my house; yet I have found it difficult to find a resource which easily shows where each of those stops can take me all on one screen. The two options availible are:
 
-This example shows the most basic idea behind Next. We have 2 pages: `pages/index.js` and `pages/about.js`. The former responds to `/` requests and the latter to `/about`. Using `next/link` you can add hyperlinks between them with universal routing capabilities. The `day` directory shows that you can have subdirectories.
+* Aggregate time tables for all buses, which don't show the geospatial path of the bus route
+* [Map resources](https://www.wmata.com/schedules/maps/) which allow you to show an individual bus route on a map one at a time
 
-## Deploy your own
+I wanted to make an app where I could type in the bus numbers that service a particular stop, and see where I could get to from that particular stop. I built this with a few technologies I was interested in taking a deeper look at.
 
-Deploy the example using [Vercel](https://vercel.com):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/next.js/tree/canary/examples/hello-world)
+* [Next JS](https://github.com/zeit/next.js).
+* [Mapbox](https://www.mapbox.com/)
+* [React Map GL](https://github.com/visgl/react-map-gl)
+* [WMATA API](https://developer.wmata.com/)
+* [React Transition Group](https://github.com/danmostudco/ReactTransitionGroupExample)
+* [Deployed with Now](https://github.com/zeit/now)
 
-## How to use
+# The App
+![Screenshot](public/AppScreenshot.png)<br />
+This app builds a very simple application which allows you to type in the name of a bus route and see it on a map. The magic is that you can do this for multiple bus routes at a time, without having to clear the map.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+* Search for multiple bus route, add it to the map
+* View multiple routes on the same map
+* Tap on the route to remove it from the map
 
-```bash
-npx create-next-app --example hello-world hello-world-app
-# or
-yarn create next-app --example hello-world hello-world-app
+## Running and Deploying the App
+
+Per usual, `use npm install` to get all the dependencies. 
+
+### Add a WMATA_API_KEY to a .env file
+You can get your own (developer API key from WMATA)[https://developer.wmata.com/] and put that in a .env file stored in the root directory. In the project directory, you can run:
+
+```
+WMATA_API_KEY=[your API key here]
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### Get a Mapbox token
+You will need to get a [Mapbox Access Token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/) for an application. I stored mine in a file called `mapboxaccesstoken.js` at the root of the directory, and then exported that string to be used in `/components/Map.js`.
+
+
+### `npm run dev`
+
+Runs the app in the development mode.<br />
+Open (http://localhost:3000)[http://localhost:3000] to view it in the browser.
+
+The page will reload if you make any edits.<br />
+
+### `npm run build`
+
+Creates an optimized production build. I didn't use this capability as I needed to utilize [API Routes](https://nextjs.org/docs/api-routes/introduction) of NextJS to hide my API keys, so I ended up using the Now CLI, developing with `now dev` and deploying with `now prod`. I then used their [Zero-Config deployments dashboard](https://vercel.com/docs/v2/build-step#environment-variables) to store my API Keys.

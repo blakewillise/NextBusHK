@@ -1,0 +1,3 @@
+const mapboxaccesstoken = "pk.eyJ1IjoiYmxha2V3aWxsaXNlIiwiYSI6ImNrcHhxaHk2NDBud2Iyb2tmeGY1NjQ3eHAifQ.8mevdt_PJKl6kJ6KgzYszw";
+
+export default mapboxaccesstoken;
